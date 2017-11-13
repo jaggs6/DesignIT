@@ -1,4 +1,4 @@
-package xyz.jagdeep.designit.presentation
+package xyz.jagdeep.designit.presentation.main
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -28,31 +28,18 @@ class MainActivity : AppCompatActivity() {
         false
     }
 
-
     private val mOnPageChangeListener = object : ViewPager.OnPageChangeListener {
 
-        override fun onPageScrollStateChanged(state: Int) {
-        }
+        override fun onPageScrollStateChanged(state: Int) {}
 
-        override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-
-        }
+        override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
         override fun onPageSelected(position: Int) {
-
             when (position) {
-                0 -> {
-                    navigation_main.selectedItemId = R.id.navigation_home
-                }
-                1 -> {
-                    navigation_main.selectedItemId = R.id.navigation_explore
-                }
-                2 -> {
-                    navigation_main.selectedItemId = R.id.navigation_profile
-                }
+                0 -> navigation_main.selectedItemId = R.id.navigation_home
+                1 -> navigation_main.selectedItemId = R.id.navigation_explore
+                2 -> navigation_main.selectedItemId = R.id.navigation_profile
             }
-
-
         }
 
     }
@@ -65,9 +52,7 @@ class MainActivity : AppCompatActivity() {
 
         navigation_main.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
-        val adapterViewPager = MyPagerAdapter(supportFragmentManager)
-        viewPager_main.adapter = adapterViewPager
-        viewPager_main.offscreenPageLimit = 3
+        viewPager_main.adapter = MainPagerAdapter(supportFragmentManager)
         viewPager_main.addOnPageChangeListener(mOnPageChangeListener)
     }
 }
