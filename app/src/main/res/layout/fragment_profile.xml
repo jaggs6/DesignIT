@@ -1,88 +1,113 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="xyz.jagdeep.designit.presentation.profile.ProfileFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/photo_profile"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:contentDescription="@string/profile_photo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <TextView
-        android:id="@+id/name_profile"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="cursive"
-        android:text="Racheal Green"
-        android:textColor="@color/colorPrimary"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/photo_profile"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingPrefix" />
+        <variable
+            name="model"
+            type="xyz.jagdeep.designit.presentation.profile.ProfileModel" />
+    </data>
 
-    <android.support.v7.widget.AppCompatRatingBar
-        android:id="@+id/rating_profile"
-        style="?android:attr/ratingBarStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:isIndicator="true"
-        android:progressTint="@color/colorGold"
-        android:rating="4.0"
-        android:stepSize="0.1"
-        app:layout_constraintBottom_toBottomOf="@+id/photo_profile"
-        app:layout_constraintStart_toEndOf="@+id/photo_profile" />
-
-    <TextView
-        android:id="@+id/rating_count_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="16dp"
-        android:layout_marginStart="8dp"
-        android:fontFamily="serif"
-        android:text="@string/profile_review_count"
-        android:textColor="@color/colorPrimary"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/rating_profile"
-        app:layout_constraintStart_toEndOf="@+id/rating_profile"
-        tools:ignore="MissingPrefix" />
-
-    <TextView
-        android:id="@+id/bio_profile"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:maxLines="4"
-        android:text="Fashion Designer based in London"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/photo_profile"
-        tools:ignore="MissingPrefix" />
+        android:layout_height="match_parent"
+        tools:context="xyz.jagdeep.designit.presentation.profile.ProfileFragment">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager_profile"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/bio_profile">
+        <ImageView
+            android:id="@+id/photo_profile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/profile_photo"
+            app:imageUrl="@{model.photoUrl}"
+            app:isCircle="@{true}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.design.widget.TabLayout
+        <TextView
+            android:id="@+id/name_profile"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="cursive"
+            android:text="@{model.fullName}"
+            android:textColor="@color/colorPrimary"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/photo_profile"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingPrefix" />
+
+        <android.support.v7.widget.AppCompatRatingBar
+            android:id="@+id/rating_profile"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:isIndicator="true"
+            android:progressTint="@color/colorGold"
+            android:rating="@{model.reviewRating}"
+            android:stepSize="0.1"
+            app:layout_constraintBottom_toBottomOf="@+id/photo_profile"
+            app:layout_constraintStart_toEndOf="@+id/photo_profile" />
+
+        <TextView
+            android:id="@+id/rating_count_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_marginStart="8dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimary"
+            app:autoSizeTextType="uniform"
+            app:htmlText="@{@string/profile_review_count(model.reviewCount)}"
+            app:layout_constraintBottom_toBottomOf="@+id/rating_profile"
+            app:layout_constraintStart_toEndOf="@+id/rating_profile"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:id="@+id/followers_following_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimary"
+            app:htmlText="@{@string/followers_following_profile(model.followersCount, model.followingCount)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/photo_profile" />
+
+        <TextView
+            android:id="@+id/bio_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            app:tabIndicatorColor="@color/colorPrimary" />
-    </android.support.v4.view.ViewPager>
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:maxLines="4"
+            android:text="@{model.bio}"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintTop_toBottomOf="@+id/followers_following_profile"
+            tools:ignore="MissingPrefix" />
 
-</android.support.constraint.ConstraintLayout>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager_profile"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/bio_profile">
+
+            <android.support.design.widget.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                app:tabIndicatorColor="@color/colorPrimary" />
+        </android.support.v4.view.ViewPager>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

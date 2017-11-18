@@ -10,22 +10,16 @@ import xyz.jagdeep.designit.R
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        val navigationIds: IntArray = intArrayOf(
+                R.id.navigation_home,
+                R.id.navigation_explore,
+                R.id.navigation_profile)
+    }
+
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.navigation_home -> {
-                viewPager_main.currentItem = 0
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_explore -> {
-                viewPager_main.currentItem = 1
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_profile -> {
-                viewPager_main.currentItem = 2
-                return@OnNavigationItemSelectedListener true
-            }
-        }
-        false
+        viewPager_main.currentItem = navigationIds.indexOf(item.itemId)
+        return@OnNavigationItemSelectedListener true
     }
 
     private val mOnPageChangeListener = object : ViewPager.OnPageChangeListener {
@@ -35,13 +29,8 @@ class MainActivity : AppCompatActivity() {
         override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
         override fun onPageSelected(position: Int) {
-            when (position) {
-                0 -> navigation_main.selectedItemId = R.id.navigation_home
-                1 -> navigation_main.selectedItemId = R.id.navigation_explore
-                2 -> navigation_main.selectedItemId = R.id.navigation_profile
-            }
+            navigation_main.selectedItemId = navigationIds[position]
         }
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,5 +43,6 @@ class MainActivity : AppCompatActivity() {
 
         viewPager_main.adapter = MainPagerAdapter(supportFragmentManager)
         viewPager_main.addOnPageChangeListener(mOnPageChangeListener)
+        viewPager_main.offscreenPageLimit = 2
     }
 }

@@ -9,7 +9,7 @@ class ProfilePagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapt
 
     // Returns total number of pages
     override fun getCount(): Int {
-        return NUM_ITEMS
+        return NUM_TABS
     }
 
     // Returns the fragment to display for that page
@@ -32,7 +32,7 @@ class ProfilePagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapt
     }
 
     companion object {
-        private val NUM_ITEMS = 3
+        private val NUM_TABS = 3
     }
 
 }
