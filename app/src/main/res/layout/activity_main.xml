@@ -5,12 +5,14 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     tools:context="xyz.jagdeep.designit.presentation.main.MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_main"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
+        android:animateLayoutChanges="true"
         android:background="?attr/colorAccent"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
@@ -29,8 +31,20 @@
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
                 android:scaleType="fitCenter"
-                android:src="@mipmap/logo"
+                android:src="@drawable/logo"
                 android:tint="@color/colorPrimary" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/profile_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_logout"
+                android:tint="@color/colorPrimary"
+                android:visibility="invisible"
+                tools:visibility="visible" />
 
         </RelativeLayout>
 

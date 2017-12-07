@@ -19,6 +19,7 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-dontobfuscate
 
 -keep public class * implements com.bumptech.glide.module.GlideModule
 -keep public class * extends com.bumptech.glide.module.AppGlideModule
@@ -26,3 +27,21 @@
   **[] $VALUES;
   public *;
 }
+
+# Twitter and Facebook are optional
+-dontwarn com.twitter.**
+-dontwarn com.facebook.**
+
+# Recommended flags for Firebase Auth
+-keepattributes Signature
+-keepattributes *Annotation*
+
+# Don't warn about retrofit or okio classes
+-dontwarn okio.**
+-dontwarn retrofit2.Call
+-dontnote retrofit2.Platform
+-dontnote retrofit2.Platform$IOS$MainThreadExecutor
+-dontwarn retrofit2.Platform$Java8
+
+-keep public class com.google.android.gms.* { public *; }
+-dontwarn com.google.android.gms.**
