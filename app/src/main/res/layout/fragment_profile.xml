@@ -36,7 +36,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="cursive"
             android:text="@{model.fullName}"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorAccent"
             app:autoSizeTextType="uniform"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/photo_profile"
@@ -62,7 +62,7 @@
             android:layout_height="16dp"
             android:layout_marginStart="8dp"
             android:fontFamily="serif"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorAccent"
             app:autoSizeTextType="uniform"
             app:htmlText="@{@string/profile_review_count(model.reviewCount)}"
             app:layout_constraintBottom_toBottomOf="@+id/rating_profile"
@@ -76,7 +76,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:fontFamily="serif"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorAccent"
             app:htmlText="@{@string/followers_following_profile(model.followersCount, model.followingCount)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/photo_profile" />
@@ -90,7 +90,7 @@
             android:layout_marginTop="8dp"
             android:maxLines="4"
             android:text="@{model.bio}"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorAccent"
             app:layout_constraintTop_toBottomOf="@+id/followers_following_profile"
             tools:ignore="MissingPrefix" />
 
@@ -105,7 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
-                app:tabIndicatorColor="@color/colorPrimary" />
+                app:tabIndicatorColor="@color/colorAccent" />
         </android.support.v4.view.ViewPager>
 
     </android.support.constraint.ConstraintLayout>

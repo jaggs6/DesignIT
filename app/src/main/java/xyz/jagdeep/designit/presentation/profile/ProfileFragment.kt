@@ -23,15 +23,14 @@ class ProfileFragment : Fragment() {
         mCurrentUser = FirebaseAuth.getInstance().currentUser
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         if (mCurrentUser == null) {
-            val loginPage = inflater!!.inflate(R.layout.fragment_login, container, false)
+            val loginPage = inflater.inflate(R.layout.fragment_login, container, false)
             loginPage.profile_login.setOnClickListener { (activity as LoginListener).login() }
             return loginPage
         } else {
-            val profileBinding = FragmentProfileBinding.inflate(inflater!!, container, false)
+            val profileBinding = FragmentProfileBinding.inflate(inflater, container, false)
             profileBinding.model = ProfileModel(
                     mCurrentUser!!.displayName!!,
                     mCurrentUser!!.photoUrl.toString(),
@@ -41,7 +40,7 @@ class ProfileFragment : Fragment() {
                     10,
                     20)
 
-            profileBinding.viewPagerProfile.adapter = ProfilePagerAdapter(activity.supportFragmentManager)
+            profileBinding.viewPagerProfile.adapter = ProfilePagerAdapter(activity!!.supportFragmentManager)
             profileBinding.viewPagerProfile.offscreenPageLimit = 2
             return profileBinding.root
         }
