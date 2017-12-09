@@ -15,8 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import xyz.jagdeep.designit.R
 import java.util.*
 
-
-class MainActivity : AppCompatActivity(), LoginListener {
+class MainActivity : AppCompatActivity() {
 
     companion object {
         val navigationIds: IntArray = intArrayOf(
@@ -76,13 +75,11 @@ class MainActivity : AppCompatActivity(), LoginListener {
         viewPager_main.offscreenPageLimit = 2
     }
 
-    override fun login() {
+    fun login() {
         // Choose authentication providers
         val providers = Arrays.asList(
                 AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build()
         )
-
-        // Create and launch sign-in intent
 
         startActivityForResult(
                 AuthUI.getInstance()
@@ -100,8 +97,4 @@ class MainActivity : AppCompatActivity(), LoginListener {
             recreate()
         }
     }
-}
-
-interface LoginListener {
-    fun login()
 }

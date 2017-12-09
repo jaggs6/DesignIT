@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.fragment_login.view.*
 import xyz.jagdeep.designit.R
 import xyz.jagdeep.designit.databinding.FragmentProfileBinding
-import xyz.jagdeep.designit.presentation.main.LoginListener
+import xyz.jagdeep.designit.presentation.main.MainActivity
 
 
 class ProfileFragment : Fragment() {
@@ -27,7 +27,7 @@ class ProfileFragment : Fragment() {
 
         if (mCurrentUser == null) {
             val loginPage = inflater.inflate(R.layout.fragment_login, container, false)
-            loginPage.profile_login.setOnClickListener { (activity as LoginListener).login() }
+            loginPage.profile_login.setOnClickListener { (activity as MainActivity).login() }
             return loginPage
         } else {
             val profileBinding = FragmentProfileBinding.inflate(inflater, container, false)
