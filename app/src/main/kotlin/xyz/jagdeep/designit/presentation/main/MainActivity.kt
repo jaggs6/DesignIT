@@ -15,11 +15,16 @@ import kotlinx.android.synthetic.main.activity_main.*
 import xyz.jagdeep.designit.R
 import xyz.jagdeep.designit.presentation.explore.CategoryFragment
 import xyz.jagdeep.designit.presentation.explore.dummy.CategoryDummyContent
+import xyz.jagdeep.designit.presentation.home.HomeFragment
+import xyz.jagdeep.designit.presentation.home.dummy.DummyContent
 import java.util.*
 
-class MainActivity : AppCompatActivity(), CategoryFragment.OnCategoryFragmentInteractionListener {
+class MainActivity : AppCompatActivity(), CategoryFragment.OnCategoryFragmentInteractionListener, HomeFragment.OnListFragmentInteractionListener {
+    override fun onListFragmentInteraction(item: DummyContent.DummyItem) {
+    }
+
     override fun onCategoryFragmentInteraction(itemCategory: CategoryDummyContent.CategoryDummyItem) {
-        TODO("not implemented")
+
     }
 
     companion object {
@@ -77,7 +82,6 @@ class MainActivity : AppCompatActivity(), CategoryFragment.OnCategoryFragmentInt
     private fun setup() {
         viewPager_main.adapter = MainPagerAdapter(supportFragmentManager)
         viewPager_main.addOnPageChangeListener(mOnPageChangeListener)
-        viewPager_main.offscreenPageLimit = 2
     }
 
     fun login() {

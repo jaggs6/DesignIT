@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/category_list"
-    android:name="xyz.jagdeep.designit.CategoryFragment"
+    android:id="@+id/home_list"
+    android:name="xyz.jagdeep.designit.presentation.home.HomeFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipToPadding="false"
-    tools:context="xyz.jagdeep.designit.presentation.explore.CategoryFragment"
-    tools:listitem="@layout/item_category" />
+    tools:context="xyz.jagdeep.designit.presentation.home.HomeFragment"
+    tools:listitem="@layout/item_home" />

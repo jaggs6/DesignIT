@@ -21,7 +21,7 @@ object CategoryDummyContent {
      */
     private val ITEM_MAP_CATEGORY: MutableMap<String, CategoryDummyItem> = HashMap()
 
-    var pos = 0
+    private var pos = 0
 
     init {
         addItem(createDummyItem("Fashion", "http://theurbanhousewife.com/wp-content/uploads/2013/01/More-Fashionable-with-Luxury-Winter-Outfits-for-Mens-and-Women-by-Burberry.jpg", 2))
