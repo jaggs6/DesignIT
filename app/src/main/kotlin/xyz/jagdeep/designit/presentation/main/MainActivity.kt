@@ -13,9 +13,14 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_main.*
 import xyz.jagdeep.designit.R
+import xyz.jagdeep.designit.presentation.explore.CategoryFragment
+import xyz.jagdeep.designit.presentation.explore.dummy.CategoryDummyContent
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CategoryFragment.OnCategoryFragmentInteractionListener {
+    override fun onCategoryFragmentInteraction(itemCategory: CategoryDummyContent.CategoryDummyItem) {
+        TODO("not implemented")
+    }
 
     companion object {
         val navigationIds: IntArray = intArrayOf(

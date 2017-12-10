@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import xyz.jagdeep.designit.presentation.BlankFragment
+import xyz.jagdeep.designit.presentation.explore.CategoryFragment
 import xyz.jagdeep.designit.presentation.profile.ProfileFragment
 
 class MainPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
@@ -17,7 +18,7 @@ class MainPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(
     override fun getItem(position: Int): Fragment? {
         return when (position) {
             0 -> BlankFragment.newInstance("Home")
-            1 -> BlankFragment.newInstance("Explore")
+            1 -> CategoryFragment()
             2 -> ProfileFragment()
             else -> null
         }
